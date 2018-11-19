@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>initializers</title>
+</head>
+
+<body>
+  <script>
+    [];
+    console.log([]);
+    [1 + 2, 3 + 4];
+    console.log([1 + 2, 3 + 4]);
+    var matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
+    console.log(matrix);
+    var sparseArray = [1, , , , 5];
+    console.log(sparseArray);
+    console.log(sparseArray.length);
+    var sparseArray = [1, , , , 5,];//與上面結果相同，不會在最後面多一個元素
+    console.log(sparseArray);
+    console.log(sparseArray.length);
+
+    var p = { x: 2.3, y: -1.2 };
+    console.log(p);
+    var q = {};
+    console.log(q);
+    q.x = -2.3; q.y = 1.2;
+    console.log(q);
+    q.x = 2.3, q.y = -1.2;
+    console.log(q);
+    var rectangle = { upperLeft: { x: 2, y: 2 }, lowerRight: { x: 4, y: 5 } };
+    console.log(rectangle);
+
+    var side = 1;
+    var square = { "upperLeft": { x: p.x, y: p.y }, 'lowerRight': { x: p.x + side, y: p.y + side } };
+    console.log(square);
+  </script>
+</body>
+
+</html>

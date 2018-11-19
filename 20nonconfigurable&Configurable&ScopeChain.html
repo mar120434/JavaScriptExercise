@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>nonconfigurable and configurable and scope chain</title>
+</head>
+
+<body>
+  <script>
+    var truevar = 1;//一個正當的變數宣告，不可刪除 nondeletable
+    fakevar = 2;//可刪除 deletable 的全域變數
+    this.fakevar2 = 3;//可刪除 deletable 的全域變數
+    console.log(delete truevar);//false，變數無法刪除
+    console.log(delete fakevar);//true，被刪除
+    console.log(delete this.fakevar2);//true，被刪除
+    // console.log(fakevar);//出現 ReferenceError 這行無法執行
+    console.log(this.fakevar2);//undefined，該物件已被刪除
+
+    //javascript 為語彙範疇(lexically scoped)，每段程式碼皆有其範疇鏈(scope chain)。
+    //當需要查詢某個變數x的值時，會逐步查詢串鏈中的物件是否有變數x的特性，此過程稱為變數析義(variable resolution)。不在範疇鏈的物件特性，會出現 ReferenceError。
+    //上面例子中的 console.log(delete fakevar);，由於 fakevar 被刪除，所以在執行時出現 ReferenceError。
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>scope of variables</title>
+</head>
+
+<body>
+  <script>
+    //scope有用var宣告
+    console.log(scope);//"undefined"
+    var scope = "global";
+    console.log(scope);//"global"
+    function checkscope() {
+      var scope = "local";
+      return scope;
+    }
+    console.log(checkscope());//"local"
+    console.log(scope);//"global"
+
+    scope = undefined;
+    console.log(scope);//undefined
+
+    //scope沒有先宣告
+    scope = "global";
+    function checkscope2() {
+      scope = "local";//糟糕，這會對全域變數作變更
+      myscope = "local";//宣告了一個全域變數
+      return [scope, myscope];
+    }
+    console.log(scope);//"global", 尚未執行 checkscope2() 前
+    console.log(checkscope2());//["local", "local"], 執行了 checkscope2()
+    console.log(scope);//"local", 全域變數值被改變
+    console.log(myscope);//"local"
+
+    scope = undefined;
+    console.log(scope);//undefined
+
+    //巢狀(nested)函式
+    var scope = "global scope";
+    console.log(scope);//"global scope"
+    function checkscope3() {
+      var scope = "local scope";
+      function nested() {
+        var scope = "nested scope";
+        return scope;
+      }
+      return nested();
+    }
+    console.log(checkscope3());//"nested scope"
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>expressions</title>
+</head>
+
+<body>
+  <script>
+    //function definition expression, 函式定義運算式
+    var square = function (x) { return x * x; };
+    console.log(square(14));
+
+    //property access expression, 特性存取運算式
+    //javascript定義了兩種語法來存取特性:
+    // expression . identifier，一個運算式後接著一個句點(period)及識別字，識別字指定想存取的特性。
+    // expression [ expression ]，第一個運算式(為物件或陣列)後面接著中括號裡的另一個運算式，第二個運算式指定想存取的特性名稱或者陣列元素索引。
+    var o = { x: 1, y: { z: 3 } };
+    var a = [o, 4, [5, 6]];
+    console.log(o.x);
+    console.log(o.y.z);
+    console.log(o["x"]);
+    console.log(a[1]);
+    console.log(a[2]["1"]);
+    console.log(a[0].x);
+
+    //invocation expression, 調用運算式
+    //是 javascript 用來呼叫(或執行)函式或方法的語法，函式運算式後接左括號(open parenthesis)、零或多個用逗號分隔的引數運算式(argument expressions)及右括號(close parenthesis)，例如：f(0); Math.max(x, y, z); a.sort();
+
+    //object creation expression 物件創建運算式
+    new Object();
+    new Object;//沒有引數也可以
+    new Date;
+  </script>
+</body>
+
+</html>

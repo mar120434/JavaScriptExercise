@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>operator</title>
+</head>
+
+<body>
+  <script>
+    console.log("1" + 2);//"12" : string
+    console.log({});//{}
+    console.log(typeof {});//object
+    console.log(toString({}));//"[object Undefined]" : string
+    console.log(1 + {});//"1[object Object]" : string, object-to-string 轉換後串接
+    console.log(true + true);//2 : number, boolean-to-number 轉換後相加
+  </script>
+</body>
+
+</html>

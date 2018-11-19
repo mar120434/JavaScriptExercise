@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>date</title>
+</head>
+
+<body>
+  <script>
+    var then = new Date(2010, 0, 1);
+    console.log(then);
+    var later = new Date(2010, 0, 1, 17, 10, 30);
+    console.log(later);
+    var now = new Date();//顯示目前日期與時間
+    console.log(now);
+    var elapsed = now - then;//顯示日期差，單位為毫秒 ms
+    console.log(elapsed);
+    
+    console.log(later.getFullYear());
+    console.log(later.getUTCFullYear());
+    console.log(later.getMonth());
+    console.log(later.getUTCMonth());
+    console.log(later.getDate());
+    console.log(later.getUTCDate());
+    console.log(later.getDay());
+    console.log(later.getUTCDay());
+    console.log(later.getHours());
+    console.log(later.getUTCHours());
+    console.log(later.toString());
+    console.log(later.toUTCString());
+    console.log(later.toISOString());
+    console.log(later.toLocaleDateString());
+    console.log(later.toLocaleTimeString());
+    console.log(later.toLocaleString());
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>wrapper</title>
+</head>
+
+<body>
+  <script>
+    var s = "test";
+    s.len = 4;//創建了一個暫時的String物件，將它的len特性設為4，然後丟棄該物件
+    var t = s.len;
+    console.log(t);//t的值會是undefined
+
+    var s = "test", n = 1, b = true;
+    var S = new String(s);
+    console.log(s == S);
+    console.log(s === S);
+    var N = new Number(n);
+    console.log(n == N);
+    console.log(n === N);
+    var B = new Boolean(b);
+    console.log(b == B);
+    console.log(b === B);
+  </script>
+</body>
+
+</html>

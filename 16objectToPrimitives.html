@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>object to primitives</title>
+</head>
+
+<body>
+  <script>
+    //基本型別值(基型值Primitives): undefined, null, boolean, 數字, 字串 =>immutable
+    console.log(({ x: 1, y: 2 }).toString());//"[object Object]", string
+    console.log(({ x: 1, y: 2 }).toString);//ƒ toString() { [native code] }, 指物件的toString方法
+    console.log(({ x: 1, y: 2 }).toString.toString());//"function toString() { [native code] }", toString方法的字串內容。
+
+    console.log([1, 2, 3].toString());//"1, 2, 3"
+    console.log((function (x) { f(x); }).toString());//"function(x){f(x);}"
+    console.log(/\d+/g.toString());//"/\d+/g"
+    console.log(new Date(2010, 0, 1).toString());//"Fri Jan 01 2010 00:00:00 GMT+0800 (台北標準時間)"
+
+    var d = new Date(2010, 0, 1);
+    console.log(d.valueOf());//1262275200000, number (ms)
+
+    var now = new Date();
+    console.log(typeof (now + 1));//"string": + 將日期轉為字串
+    console.log(typeof (now - 1));//"number": - 使用 object-to-number 轉換
+    console.log(now == now.toString());//true, boolean 隱含的與明確的字串轉換
+    console.log(now > (now - 1));//true, boolean , > 將 Date 物件轉為數字
+  </script>
+</body>
+
+</html>

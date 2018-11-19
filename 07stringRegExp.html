@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>string RexExp</title>
+</head>
+
+<body>
+  <script>
+    var text = "testing: 1, 2, 3";
+    var pattern = /\d+/g;
+    console.log(pattern.test(text));//true：找到匹配
+    console.log(text.search(pattern));//9：第一個匹配的位置
+    console.log(text.match(pattern));//["1", "2", "3"]：所有匹配組成的陣列
+    console.log(text.replace(pattern, "#"));//"test: #, #, #"
+    console.log(text.split(/\D+/));//["", "1", "2", "3"]：以非數字(non-digits)為區隔，劃分為子字串。
+  </script>
+</body>
+
+</html>

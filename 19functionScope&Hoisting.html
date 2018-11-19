@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>function scope and hoisting</title>
+</head>
+
+<body>
+  <script>
+    //javascript 的 hoisting(提升) 現象
+    function test(o) {
+      var i = 0;//i在函式內的每個地方都有定義，函式外則出現錯誤。
+      if (typeof o == "object") {
+        var j = 0;//j在函式中每個地方都有定義，不僅在區塊(block)內
+        for (var k = 0; k < 10; k++) {//k在函式中每個地方都有定義，不僅在迴圈內
+          console.log(k);//1 ~ 9
+        }
+        console.log(k);//10, k在迴圈外也有定義，由於迴圈的關係，值為10
+      }
+      console.log(j);//0, j有定義
+    }
+    test({});
+
+    var scope = "global";
+    (function f() {
+      console.log(scope);//undefined, 而非 "global"
+      var scope = "local";//設定函式初值，表示變數在函式裡有定義，因此函式外的全域變數沒有影響到函式內
+      console.log(scope);//"local"
+    })();
+    //上述情況類似以下
+    (function f(){
+      var scope;//區域變數先被宣告，但未給值
+      console.log(scope);//區域變數顯示 undefined
+      scope = "local";//給予變數值，也就是初始化
+      console.log(scope);//顯示給予的變數值 "local"
+    })();
+  </script>
+</body>
+
+</html>
